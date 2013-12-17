@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Layers Control</title>
+  
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  <script src='http://api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js'></script>
+  <link href='http://api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.css' rel='stylesheet' />
+  
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+var map = L.map('map').setView([35.4, -120.9], 12);
+
+L.control.layers({
+    'RGB': L.mapbox.tileLayer('geoslo.f7berbvk').addTo(map),
+    'RGB pan': L.mapbox.tileLayer('geoslo.gwthml5l'),
+    'False Color pan': L.mapbox.tileLayer('geoslo.s04x1zcl'),
+    'Color InfraRed pan': L.mapbox.tileLayer('geoslo.10ryz6m7')
+}, {
+    'Estero burn': L.mapbox.tileLayer('geoslo.m7p060zt'),
+    'Harmony Headlands burn': L.mapbox.tileLayer('geoslo.8yv4d81n')
+}).addTo(map);
+</script>
+
+</body>
+</html>
+
